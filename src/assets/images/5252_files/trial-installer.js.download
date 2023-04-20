@@ -1,0 +1,218 @@
+var product = {};
+var urlQuery = window.location.href.split("sourceid=");
+var now = new Date();
+var time = now.getTime();
+time += 30 * 3600 * 1000 * 24;
+now.setTime(time);
+var siteName = "";
+var prodId = "";
+var elementId = "";
+var link = "";
+var hostName = window.location.hostname;
+var pathName = location.pathname
+if (hostName.search("aftershotpro.") > 0) {
+	siteName = "source_id_asp";
+} else if (hostName.search("coreldraw.") > 0) {} else if (hostName.search("painterartist.") > 0) {
+	if (pathName.search("/painter-essentials/uninstall.html") > 0) {
+		prodId = "ptr2023";
+		siteName = "source_id_pntr";
+		elementId = "ptr-trial_";
+		link = "/product/painter/trial-thank-you.html?ver=ptr23.0";
+		product = {
+			"seo": prodId + "-xx-seo",
+			"ppc": prodId + "-xx-ppc_brkws",
+			"defaultId": prodId + "-xx-na",
+			"className": "pntr-trial-win",
+			"macUrl": "https://www.corel.com/akdlm/6763/downloads/free/trials/Painter/2023/KL8s49xW/CorelPainter2023.dmg"
+		};
+	} else if (pathName.search("/painter-essentials/") > 0) {
+		prodId = "pte8";
+		siteName = "source_id_pe";
+		elementId = "pe-trial_";
+		link = "/product/painter-essentials/trial-thank-you.html";
+		product = {
+			"seo": prodId + "-xx-seo",
+			"ppc": prodId + "-xx-ppc_brkws",
+			"defaultId": prodId + "-xx-na",
+			"className": "pe-trial-win",
+			"macUrl": "https://www.corel.com/akdlm/6763/downloads/free/trials/Painter/Essentials/8/D4Kg92s/PainterEssentials8.dmg"
+		};
+	} else {
+		prodId = "ptr2023";
+		siteName = "source_id_pntr";
+		elementId = "ptr-trial_";
+		link = "/product/painter/trial-thank-you.html?ver=ptr23.0";
+		product = {
+			"seo": prodId + "-xx-seo",
+			"ppc": prodId + "-xx-ppc_brkws",
+			"defaultId": prodId + "-xx-na",
+			"className": "pntr-trial-win",
+			"macUrl": "https://www.corel.com/akdlm/6763/downloads/free/trials/Painter/2023/KL8s49xW/CorelPainter2023.dmg"
+		};
+	}
+} else if (hostName.search("paintshoppro.") > 0) {
+	prodId = "psp2023";
+	siteName = "source_id";
+	elementId = "psp-trial_";
+	link = "/trialthankyou";
+	product = {
+		"seo": prodId + "-xx-seo",
+		"ppc": prodId + "-xx-ppc_brkws",
+		"defaultId": prodId + "-xx-na",
+		"className": "psp-trial-win",
+		"macUrl": "https://dwnld.paintshoppro.com/trials/psp/2023/VrCk2he58y/PSP2023Installer.exe"
+	};
+	var psp_now = new Date();
+	var psp_time = psp_now.getTime();
+	psp_time += 60 * 3600 * 1000 * 24;
+	now.setTime(psp_time);
+} else if (hostName.search("photomirage.") > 0) {
+	prodId = "mir1";
+	siteName = "source_id";
+	elementId = "pm-trial_";
+	link = "/trial-thank-you";
+	product = {
+		"seo": prodId + "-xx-seo",
+		"ppc": prodId + "-xx-ppc_brkws",
+		"defaultId": prodId + "-xx-na",
+		"className": "pm-trial-win",
+		"macUrl": "https://dwnld.photomirage.io/trials/1/PhotoMirageInstaller.exe"
+	};
+} else if (hostName.search("videostudiopro.") > 0) {} else if (hostName.search("wordperfectpro.") > 0) {} else {}
+var sourceId = ""
+var siteCookie = document.cookie.match('(?:^|;) ?' + siteName + '=([^;]*)(?:;|$)');
+if (siteCookie) {
+	sourceId = siteCookie[1];
+}
+var isWindows = true;
+if ((window.navigator.userAgent.indexOf("Mac") != -1) || (window.navigator.userAgent.indexOf("Linux") != -1)) {
+	isWindows = false;
+}
+var referrer = document.referrer;
+if (referrer.match(/^https?:\/\/www\.google\.([^\/]+)(\/|$)/i) && isWindows) {
+	sourceId = product["seo"];
+	if (((window.location.href.search("gclid=")) > 0)) {
+		sourceId = product["ppc"];
+		if ((urlQuery[1].search("&")) > 0) {
+			var subUrlQuery = urlQuery[1].split("&");
+			sourceId = subUrlQuery[0];
+		} else {
+			sourceId = urlQuery[1];
+		}
+	}
+} else if (urlQuery.length > 0 && ((window.location.href.search("sourceid=")) > 0) && isWindows) {
+	if ((urlQuery[1].search("&")) > 0) {
+		var subUrlQuery = urlQuery[1].split("&");
+		sourceId = subUrlQuery[0];
+	} else {
+		sourceId = urlQuery[1];
+	}
+	if (siteCookie) {
+		sourceId = siteCookie[1];
+	} else {
+		document.cookie = siteName + '=' + sourceId + '; expires=' + now.toUTCString() + '; path=/';
+	}
+}
+//Hardcoded logic to replace pte to be ptr2023 in every page except Painter Essentials product page
+if (hostName.search("painterartist.") > 0) {
+	if (pathName.search("/product/painter-essentials/") > 0) {
+	}else{
+		if(sourceId.indexOf("pte8", 0) == 0){	// For non pte pages, if sourceId=pte8-xx-seo, force it to be ptr2023
+			sourceId = sourceId.replace("pte8", "ptr2023");
+		}else if(sourceId.indexOf("pte", 0) == 0){	// For non pte pages, if sourceId=pte-xx-seo, force it to be ptr2023
+			sourceId = sourceId.replace("pte", "ptr2023");
+		}
+	}
+}
+if (sourceId == "") {
+	sourceId = product["defaultId"];
+}
+var installerServerPath = "https://installer.corel.com/get_dwnld.cgi";
+if(hostName.match(/dev.?\./)) {
+	installerServerPath = "https://dev.installer.public.corel.net/get_dwnld.cgi";
+} else if (hostName.match(/stg.?\./)) {
+	installerServerPath = "https://stg.installer.public.corel.net/get_dwnld.cgi";
+} else if (hostName.match(/local.?\./)) {
+	installerServerPath = "http://localhost/get_dwnld.cgi";
+}
+
+if (isWindows) {
+	$(document).ready(function () {
+		$.getJSON(installerServerPath, {
+			"source_id": sourceId
+		}, function (data_dwn) {
+			for (var i = 1; i < 11; i++) {
+				var element = "#" + elementId + i;
+				var hrefElement = elementId + i;
+				if ($(element).length) {
+					document.getElementById(hrefElement).href = data_dwn.download_url;
+					document.getElementById(hrefElement).className += " " + product["className"];
+				}
+			}
+			document.cookie = 'stub-trk-param=' + data_dwn.stub_trk_param + '; expires=' + now.toUTCString() + '; path=/';
+		})
+	});
+}
+if (!isWindows && (window.location.href.indexOf("trial-thank-you.html") < 0)) {
+	for (var i = 1; i < 11; i++) {
+		var element = "#" + elementId + i;
+		var hrefElement = elementId + i;
+		if ($(element).length) {
+			document.getElementById(hrefElement).href = product["macUrl"];
+		}
+	}
+}
+$(document).ready(function () {
+	function WhileDownloadRedirect() {
+		console.log("redirecting");
+		window.location.href = link;
+	}
+	var lang = "en";
+	if (window.location.href.search('/jp/') >= 0) {
+		lang = "jp";
+	} else if (window.location.href.search('/de/') >= 0) {
+		lang = "de";
+	} else if (window.location.href.search('/fr/') >= 0) {
+		lang = "fr";
+	} else if (window.location.href.search('/tw/') >= 0) {
+		lang = "tw";
+	} else if (window.location.href.search('/es/') >= 0) {
+		lang = "es";
+	} else if (window.location.href.search('/it/') >= 0) {
+		lang = "it";
+	} else if (window.location.href.search('/nl/') >= 0) {
+		lang = "nl";
+	} else if (window.location.href.search('/ru/') >= 0) {
+		lang = "ru";
+	}
+	$('#pvs-vsp-trial').click(function () {
+		var plink = "/" + lang + "/products/videostudio/trial-thank-you.html?dwn=thankyou-vsp";
+		setTimeout(function () {
+			window.open('http://www.videostudiopro.com/trialthankyou', '_blank');
+		}, 3000);
+	});
+	if (hostName.search("paintshoppro.") < 0) {
+		link = "/" + lang + link;
+	}
+	for (var i = 1; i < 11; i++) {
+		var element = "#" + elementId + i;
+		$(element).click(function () {
+			if (window.location.href.indexOf("trial-thank-you.html") < 0) {
+				console.log(link);
+				setTimeout(function () {
+					window.open(link, '_parent');
+				}, 5000);
+			}
+		});
+	}
+	if (hostName.search("paintshoppro.") >= 0) {
+		var element = "#pm-trial";
+		var thankYouPageLink = "https://www.photomirage.io/" + lang + "/trial-thank-you.html";
+		$(element).click(function () {
+			console.log(thankYouPageLink);
+			setTimeout(function () {
+				window.open(thankYouPageLink, '_parent');
+			}, 3000);
+		});
+	}
+});

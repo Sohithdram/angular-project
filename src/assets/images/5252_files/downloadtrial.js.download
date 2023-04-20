@@ -1,0 +1,89 @@
+	 $(document).ready(function () {
+
+	 	var plink = "ParentFile";
+
+	 	function WhileDownloadRedirect() {
+	 		parent.location.href = plink;
+	 	}
+	 	$('.pm-trial-en').click(function () {
+	 		plink = "/en/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	});
+	 	$('#pm-trial').click(function () {
+	 		plink = "/en/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	});		
+		 
+	 	$('.pm-trial-de').click(function () {
+	 		plink = "/de/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	});				 
+	 	$('#pm-trial-de').click(function () {
+	 		plink = "/de/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	}); 
+		 
+	 	$('.pm-trial-es').click(function () {
+	 		plink = "/es/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	});		 
+	 	$('#pm-trial-es').click(function () {
+			plink = "/es/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	});
+		 
+	 	$('.pm-trial-fr').click(function () {
+	 		plink = "/fr/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	});		 
+	 	$('#pm-trial-fr').click(function () {
+			plink = "/fr/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	});
+		 
+	 	$('.pm-trial-it').click(function () {
+	 		plink = "/it/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	});		 
+	 	$('#pm-trial-it').click(function () {
+			plink = "/it/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	});
+		 
+	 	$('.pm-trial-jp').click(function () {
+			plink = "/jp/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	});			 
+	 	$('#pm-trial-jp').click(function () {
+			plink = "/jp/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	});	
+		 
+	 	$('.pm-trial-nl').click(function () {
+			plink = "/nl/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	});		 
+	 	$('#pm-trial-nl').click(function () {
+			plink = "/nl/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	});
+
+		$('.pm-trial-ru').click(function () {
+			plink = "/ru/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	});		 
+	 	$('#pm-trial-ru').click(function () {
+			plink = "/ru/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	});
+		
+		$('.pm-trial-tw').click(function () {
+			plink = "/tw/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	});		 
+	 	$('#pm-trial-tw').click(function () {
+			plink = "/tw/trial-thank-you.html?dwn=thankyou-pm";
+	 		setTimeout(WhileDownloadRedirect, 3000);
+	 	});
+		
+	 });

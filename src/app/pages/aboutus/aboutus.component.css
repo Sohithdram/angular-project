@@ -1,0 +1,118 @@
+*{
+    margin-top: 0px;
+}
+p{
+font-size: large;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+margin-left: 10px;
+}
+h2{
+    margin-left: 5px;
+}
+.desc1{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid black;
+    box-shadow: 5px 5px 10px;
+    border: none;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    
+}
+.section1{
+    width: 65%;
+}
+.desc2{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid black;
+    box-shadow: 5px 5px 10px;
+    border: none;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-anchor: start;
+    margin-top: 25px;
+}
+.section3{
+    width: 100%;
+}
+.desc3{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid black;
+    box-shadow: 5px 5px 10px;
+    border: none;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 25px;
+}
+.section5{
+    width: 65%;
+}
+
+.desc4{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid black;
+    box-shadow: 5px 5px 10px;
+    border: none;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 25px;
+    /* flex: 1; */
+    /* z-index: -1;
+    filter: blur(5px); */
+}
+.section7{
+    width: 100%;
+    
+}
+.blink{
+    animation: blinker 1.5s linear infinite;
+    color: rgb(105, 65, 7);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+@keyframes blinker{
+    75%{
+        opacity: 0;
+    }
+}
+/* .hi{ */
+    /* position:absolute; */
+    /* background-image:url(../../../assets/images/contact4.jfif); */
+    /* filter: blur(5px); */
+    /* z-index: -1; */
+/* } */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* p{
+font-size: 17px;
+color: rgb(54 53 53 / 80%);
+}
+imgdiv{
+
+
+    position: absolute;
+    margin-left: 50%;
+    margin-right: -100%;
+} */

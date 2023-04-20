@@ -1,0 +1,44 @@
+fieldset{
+  
+    border: 3px solid black;
+    box-shadow: 5px 5px 10px black;
+    background-color: rgba(17, 17, 17, 0.6);
+    margin: auto 50px; 
+    top: 50px;
+    border: none;
+}
+.container{
+    /* margin: 20px auto; */
+    word-spacing: normal;
+    margin-left: 10px;
+    /* height: 800px; */
+    /* padding-bottom: 250px; */
+}
+body{
+    background-image: url(../../../assets/images/0001.jfif);
+    background-size: cover;
+    height: 100%;
+    color: white;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* p{
+    font-size: 17px;
+    color: rgba(189, 22, 22, 0.8);
+    }
+    h4{
+
+
+        color: royalblue
+    } */
